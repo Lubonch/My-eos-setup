@@ -33,6 +33,7 @@ cd eos-setup
 | `media` | OBS, Handbrake, GIMP, Inkscape, MKVToolNix, Olive, Hakuneko |
 | `util` | fastfetch, htop, GParted, qBittorrent, FileZilla, Timeshift, KeePassXC |
 | `desktop` | Drivers AMD, Vulkan, Omnissa Horizon, Parsec, OpenCode |
+| `anime` | Trackma, ani-cli |
 | `fonts` | fuentes, gtk2-compat, herramientas varias |
 
 ## Estructura
