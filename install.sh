@@ -45,6 +45,7 @@ CATEGORIES=(
     [util]="utilities|fastfetch, htop, GParted, qBittorrent, FileZilla, Timeshift, KeePassXC"
     [desktop]="desktop-hardware|Drivers AMD, Vulkan, Omnissa, Parsec, OpenCode"
     [kde]="desktop-kde|KDE Plasma: sddm-kcm, kwalletmanager (solo si KDE)"
+    [anime]="anime|Trackma, ani-cli"
     [fonts]="fonts-other|ttf-vista-fonts, gtk2-compat, herramientas varias"
 )
 
