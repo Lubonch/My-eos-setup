@@ -44,8 +44,48 @@ CATEGORIES=(
     [media]="multimedia|OBS, Handbrake, GIMP, Inkscape, MKVToolNix, Olive"
     [util]="utilities|fastfetch, htop, GParted, qBittorrent, FileZilla, Timeshift, KeePassXC"
     [desktop]="desktop-hardware|Drivers AMD, Vulkan, Omnissa, Parsec, OpenCode"
+    [kde]="desktop-kde|KDE Plasma: sddm-kcm, kwalletmanager (solo si KDE)"
     [fonts]="fonts-other|ttf-vista-fonts, gtk2-compat, herramientas varias"
 )
+
+# ============================================================
+# Detección de escritorio
+# ============================================================
+detect_desktop() {
+    local de=""
+
+    # Verificar por variables de entorno
+    if [[ -n "${XDG_CURRENT_DESKTOP:-}" ]]; then
+        de="$XDG_CURRENT_DESKTOP"
+    elif [[ -n "${DESKTOP_SESSION:-}" ]]; then
+        de="$DESKTOP_SESSION"
+    fi
+
+    # Verificar por paquetes instalados
+    if [[ -z "$de" ]]; then
+        if pacman -Qi plasma-desktop &>/dev/null; then
+            de="KDE"
+        elif pacman -Qi gnome-shell &>/dev/null; then
+            de="GNOME"
+        elif pacman -Qi xfce4-session &>/dev/null; then
+            de="XFCE"
+        elif pacman -Qi i3-wm &>/dev/null; then
+            de="i3"
+        elif pacman -Qi sway &>/dev/null; then
+            de="Sway"
+        elif pacman -Qi hyprland &>/dev/null; then
+            de="Hyprland"
+        fi
+    fi
+
+    echo "$de"
+}
+
+is_kde() {
+    local de
+    de=$(detect_desktop)
+    [[ "${de,,}" == *"kde"* || "${de,,}" == *"plasma"* ]]
+}
 
 # ============================================================
 # Funciones
@@ -161,6 +201,14 @@ install_category() {
     local key="$1"
     local file="${CATEGORIES[$key]%%|*}"
 
+    # Saltar categorías KDE si no estamos en KDE
+    if [[ "$file" == "desktop-kde" ]] && ! is_kde; then
+        local de
+        de=$(detect_desktop)
+        warn "Escritorio detectado: ${de:-desconocido} - saltando paquetes KDE"
+        return
+    fi
+
     echo -e "\n${CYAN}━━━ Instalando: $key ━━━${NC}"
     install_pacman_packages "$file"
     install_aur_packages "$file"
@@ -214,6 +262,15 @@ main() {
     echo -e "${NC}"
 
     check_deps
+
+    # Detectar escritorio
+    DETECTED_DESKTOP=$(detect_desktop)
+    if [[ -n "$DETECTED_DESKTOP" ]]; then
+        info "Escritorio detectado: $DETECTED_DESKTOP"
+    else
+        warn "No se detectó escritorio - se saltarán paquetes de entorno de escritorio"
+    fi
+
     install_yay
 
     # Si no se especificaron categorías, preguntar
