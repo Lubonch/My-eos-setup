@@ -1,0 +1,13 @@
+# Multimedia
+# --- Pacman (oficiales) ---
+obs-studio
+gimp
+mkvtoolnix-cli
+olive
+inkscape
+
+# --- AUR ---
+handbrake-full
+hakuneko-desktop-bin
+kcc
+kindlegen
