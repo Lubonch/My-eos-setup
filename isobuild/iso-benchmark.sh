@@ -36,6 +36,9 @@ AUR_PACKAGES=(
     geekbench
     unigine-superposition
     phoronix-test-suite
+    gputest
+    basemark
+    blender-benchmark-bin
 )
 
 # ============================================================
@@ -62,10 +65,17 @@ i3status
 dmenu
 xorg-xinit
 xcape
+xterm
+
+## Ricing sobrio
+picom
+rofi
+feh
 
 ## Hardware info
 cpufetch
-btop'
+btop
+openssl'
 
 # ============================================================
 # Funciones
@@ -130,6 +140,11 @@ export GDK_BACKEND=x11
 exec i3
 EOF
     chmod +x airootfs/root/benchmark-xinitrc
+
+    log "Agregando config de i3/picom (ricing sobrio)..."
+    mkdir -p airootfs/etc/skel/.config/i3
+    cp "$BASE_DIR/dotfiles/i3/config" airootfs/etc/skel/.config/i3/config 2>/dev/null || true
+    cp "$BASE_DIR/dotfiles/picom.conf" airootfs/etc/skel/.config/picom.conf 2>/dev/null || true
 
     log "Agregando user_commands.bash..."
     cp "$BASE_DIR/user_commands.bash" airootfs/root/ 2>/dev/null || true

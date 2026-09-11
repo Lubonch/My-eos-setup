@@ -1,0 +1,92 @@
+# i3 config - Benchmark ISO (ricing sobrio)
+# Barra: i3bar default con i3status (mod+3)
+
+set $mod Mod4
+
+font pango:JetBrainsMono Nerd Font 10
+
+# Wallpaper
+exec --no-startup-id feh --bg-fill /usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png
+
+# Compositor
+exec --no-startup-id picom --daemon
+
+# Notificaciones de sonido off (benchmark runs)
+focus_on_window_activation urgent
+
+# Gaps (discretos)
+gaps inner 6
+gaps outer 2
+
+# Bordes
+default_border pixel 1
+
+# Colores sobrios (verde tech)
+set $bg     #1e2127
+set $fg     #d8dee9
+set $accent #7fb069
+set $urgent #e06c75
+
+client.focused          $accent $accent $bg $accent $accent
+client.focused_inactive #343a40 #343a40 $fg #343a40 #343a40
+client.unfocused        #282c34 #282c34 $fg #282c34 #282c34
+client.urgent           $urgent $urgent $bg $urgent $urgent
+
+# Atajos
+set $mod Mod4
+
+bindsym $mod+d exec rofi -show run -theme-str 'window {background-color:#1e2127;}'
+bindsym $mod+Return exec xterm
+bindsym $mod+Shift+q kill
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+
+bindsym $mod+v split horizontal
+bindsym $mod+s split vertical
+bindsym $mod+f fullscreen toggle
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-msg exit"
+
+# Modo resize
+mode "resize" {
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Barra
+bar {
+    position top
+    status_command i3status
+    colors {
+        background #1e2127
+        statusline #d8dee9
+        focused_workspace #7fb069 #7fb069 #1e2127
+        active_workspace #343a40 #343a40 #d8dee9
+        inactive_workspace #282c34 #282c34 #d8dee9
+        urgent_workspace #e06c75 #e06c75 #1e2127
+    }
+}
