@@ -53,6 +53,8 @@ eos-setup/
 │   ├── multimedia.txt
 │   ├── utilities.txt
 │   ├── desktop-hardware.txt
+│   ├── desktop-kde.txt
+│   ├── anime.txt
 │   └── fonts-other.txt
 └── dotfiles/            # Archivos de configuración
     ├── bashrc
@@ -62,21 +64,51 @@ eos-setup/
 
 ## Agregar/quitar paquetes
 
-Editá los archivos en `packages/`. Cada archivo tiene secciones:
+Editá los archivos en `packages/`. Cada archivo tiene dos secciones separadas:
 
 ```
+# Nombre de la categoría
 # --- Pacman (oficiales) ---
-paquete1
-paquete2
+firefox
+steam
 
 # --- AUR ---
-paquete-aur-1
+proton-ge-custom-bin
+vesktop
 ```
 
-## Dotfiles incluidos
+**Importante**: los paquetes AUR van **después** de `# --- AUR ---`. El script usa `yay` para instalarlos (resuelve dependencias automáticamente). Los que están antes se instalan con `sudo pacman -S`.
 
-- `.bashrc` - aliases, PATH para dotnet/bin/opencode
-- `.gitconfig` - nombre y email
-- `.gtkrc-2.0` - tema Breeze-Dark
+### Ejemplo: agregar un paquete pacman
 
-Para agregar más dotfiles, copialos a `dotfiles/` y agregá la línea de copia en `install.sh` (función `copy_dotfiles`).
+1. Abrí el archivo correspondiente (ej: `packages/utilities.txt`)
+2. Agregalo bajo `# --- Pacman (oficiales) ---`
+3. Ejecutá `git pull` en la instalación fresh
+
+### Ejemplo: agregar un paquete AUR
+
+1. Abrí el archivo (ej: `packages/gaming.txt`)
+2. Agregalo bajo `# --- AUR ---`
+3. `git pull` en la instalación
+
+### Agregar una categoría nueva
+
+1. Creá el archivo `packages/mi-categoria.txt` con la sección pacman y AUR
+2. Agregá la entrada en `CATEGORIES` en `install.sh`:
+   ```bash
+   [mi-categoria]="mi-categoria|Descripción breve"
+   ```
+
+### Logs
+
+Cada ejecución genera un log en `/tmp/eos-setup-YYYYMMDD-HHMMSS.log` con todo el output de instalación. Si algo falla, revisá el log:
+
+```bash
+# Ver el último log
+ls -t /tmp/eos-setup-*.log | head -1
+
+# Ver errores
+grep -i error /tmp/eos-setup-*.log
+```
+
+Si un paquete falla, el script se detiene en ese punto (por `set -euo pipefail`). Corregilo y volvé a ejecutar — los paquetes ya instalados se saltan automáticamente.
