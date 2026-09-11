@@ -1,0 +1,454 @@
+==> Making package: olive 0.1.2-4 (jue 10 sep 2026 19:51:49)
+==> Checking runtime dependencies...
+==> Checking buildtime dependencies...
+==> Retrieving sources...
+  -> Downloading olive-0.1.2.tar.gz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0           00:02              0  0      0   0      0   0      0      0      0           00:02              0  0      0   0      0   0      0      0      0           00:02              0
+  0      0   0      0   0      0      0      0           00:08              0100  1.51M   0  1.51M   0      0 163.0k      0           00:09          1.50M100  2.07M   0  2.07M   0      0 221.8k      0           00:09          1.50M100  2.07M   0  2.07M   0      0 221.8k      0           00:09          1.50M100  2.07M   0  2.07M   0      0 221.8k      0           00:09          1.50M
+  -> Found olive-0.1.2-appdata-desktop.patch
+  -> Found olive-0.1.2-cacher.patch
+  -> Found olive-0.1.2-clickablelabel.patch
+  -> Found olive-0.1.2-FlowLayout.patch
+  -> Found olive-0.1.2-proxygenerator.patch
+  -> Found olive-0.1.2-QFontMetrics.patch
+  -> Found olive-0.1.2-QPainterPath.patch
+  -> Found olive-0.1.2-QWheelEvent.patch
+==> Validating source files with b2sums...
+    olive-0.1.2.tar.gz ... Passed
+    olive-0.1.2-appdata-desktop.patch ... Passed
+    olive-0.1.2-cacher.patch ... Passed
+    olive-0.1.2-clickablelabel.patch ... Passed
+    olive-0.1.2-FlowLayout.patch ... Passed
+    olive-0.1.2-proxygenerator.patch ... Passed
+    olive-0.1.2-QFontMetrics.patch ... Passed
+    olive-0.1.2-QPainterPath.patch ... Passed
+    olive-0.1.2-QWheelEvent.patch ... Passed
+==> Extracting sources...
+  -> Extracting olive-0.1.2.tar.gz with bsdtar
+==> Starting prepare()...
+patching file packaging/linux/org.olivevideoeditor.Olive.appdata.xml
+patching file packaging/linux/org.olivevideoeditor.Olive.desktop
+patching file rendering/cacher.cpp
+patching file ui/clickablelabel.h
+patching file ui/flowlayout.cpp
+patching file project/proxygenerator.cpp
+patching file effects/internal/texteffect.cpp
+patching file effects/internal/timecodeeffect.cpp
+patching file ui/graphview.cpp
+patching file ui/sourceiconview.cpp
+patching file ui/timelineheader.cpp
+patching file ui/timelinewidget.cpp
+patching file ui/viewerwindow.cpp
+patching file effects/internal/texteffect.cpp
+patching file effects/internal/timecodeeffect.cpp
+patching file ui/graphview.cpp
+patching file ui/timelineheader.cpp
+patching file ui/graphview.cpp
+Hunk #1 succeeded at 796 (offset 1 line).
+Hunk #2 succeeded at 808 (offset 1 line).
+==> Starting build()...
+CMake Warning (deprecated) at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+This warning is for project developers.  Use -Wno-author or -Wno-deprecated
+to suppress it.
+
+-- The CXX compiler identification is GNU 16.2.1
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found OpenGL: /usr/lib/libGL.so
+-- Found FFMPEG: /usr/include/ffmpeg4.4 (found suitable version "4.4.8", minimum required is "3.4") found components: avutil avcodec avformat avfilter swscale swresample
+-- Found frei0r include-dir path: /usr/include
+Olive: git hash = 0ac9dd9
+-- Found Doxygen: /usr/bin/doxygen (found version "1.18.0") found components: doxygen dot
+-- Configuring done (0.4s)
+-- Generating done (0.1s)
+-- Build files have been written to: /tmp/eos-aur-build/olive/src/build
+[  0%] Built target olive-editor_autogen_timestamp_deps
+[  1%] Automatic MOC and UIC for target olive-editor
+[  1%] Built target olive-editor_autogen
+[  2%] Generating olive_zh-TW.qm
+Updating '/tmp/eos-aur-build/olive/src/build/olive_zh-TW.qm'...
+    Generated 673 translation(s) (673 finished and 0 unfinished)
+    Ignored 30 untranslated source text(s)
+[  2%] Automatic RCC for icons/icons.qrc
+[  3%] Automatic RCC for cursors/cursors.qrc
+[  4%] Automatic RCC for effects/internal/internalshaders.qrc
+[  4%] Generating olive_ar.qm
+Updating '/tmp/eos-aur-build/olive/src/build/olive_ar.qm'...
+    Generated 589 translation(s) (509 finished and 80 unfinished)
+    Ignored 89 untranslated source text(s)
+[  5%] Generating olive_bs.qm
+Updating '/tmp/eos-aur-build/olive/src/build/olive_bs.qm'...
+    Generated 165 translation(s) (154 finished and 11 unfinished)
+    Ignored 513 untranslated source text(s)
+[  6%] Generating olive_cs.qm
+Updating '/tmp/eos-aur-build/olive/src/build/olive_cs.qm'...
+    Generated 781 translation(s) (781 finished and 0 unfinished)
+[  6%] Generating olive_de.qm
+Updating '/tmp/eos-aur-build/olive/src/build/olive_de.qm'...
+    Generated 600 translation(s) (587 finished and 13 unfinished)
+    Ignored 78 untranslated source text(s)
+[  7%] Generating olive_es.qm
+Updating '/tmp/eos-aur-build/olive/src/build/olive_es.qm'...
+    Generated 820 translation(s) (820 finished and 0 unfinished)
+[  8%] Generating olive_fr.qm
+Updating '/tmp/eos-aur-build/olive/src/build/olive_fr.qm'...
+    Generated 606 translation(s) (526 finished and 80 unfinished)
+    Ignored 72 untranslated source text(s)
+[  8%] Generating olive_id.qm
+Updating '/tmp/eos-aur-build/olive/src/build/olive_id.qm'...
+    Generated 665 translation(s) (642 finished and 23 unfinished)
+    Ignored 13 untranslated source text(s)
+[  8%] Generating olive_it.qm
+Updating '/tmp/eos-aur-build/olive/src/build/olive_it.qm'...
+    Generated 678 translation(s) (678 finished and 0 unfinished)
+[  9%] Generating olive_pt-BR.qm
+Updating '/tmp/eos-aur-build/olive/src/build/olive_pt-BR.qm'...
+    Generated 778 translation(s) (778 finished and 0 unfinished)
+[ 10%] Generating olive_ru.qm
+Updating '/tmp/eos-aur-build/olive/src/build/olive_ru.qm'...
+    Generated 629 translation(s) (626 finished and 3 unfinished)
+    Ignored 49 untranslated source text(s)
+[ 11%] Generating olive_sr.qm
+Updating '/tmp/eos-aur-build/olive/src/build/olive_sr.qm'...
+    Generated 162 translation(s) (153 finished and 9 unfinished)
+    Ignored 516 untranslated source text(s)
+[ 12%] Generating olive_tr.qm
+Updating '/tmp/eos-aur-build/olive/src/build/olive_tr.qm'...
+Removed plural forms as the target language has less forms.
+If this sounds wrong, possibly the target language is not set or recognized.
+    Generated 678 translation(s) (678 finished and 0 unfinished)
+[ 12%] Generating olive_uk.qm
+Updating '/tmp/eos-aur-build/olive/src/build/olive_uk.qm'...
+    Generated 678 translation(s) (678 finished and 0 unfinished)
+[ 13%] Generating olive_zh-CN.qm
+Updating '/tmp/eos-aur-build/olive/src/build/olive_zh-CN.qm'...
+    Generated 673 translation(s) (673 finished and 0 unfinished)
+    Ignored 30 untranslated source text(s)
+[ 14%] Building CXX object CMakeFiles/olive-editor.dir/olive-editor_autogen/mocs_compilation.cpp.o
+[ 15%] Building CXX object CMakeFiles/olive-editor.dir/dialogs/aboutdialog.cpp.o
+[ 15%] Building CXX object CMakeFiles/olive-editor.dir/dialogs/actionsearch.cpp.o
+[ 16%] Building CXX object CMakeFiles/olive-editor.dir/dialogs/advancedvideodialog.cpp.o
+[ 17%] Building CXX object CMakeFiles/olive-editor.dir/dialogs/autocutsilencedialog.cpp.o
+[ 17%] Building CXX object CMakeFiles/olive-editor.dir/dialogs/clippropertiesdialog.cpp.o
+[ 18%] Building CXX object CMakeFiles/olive-editor.dir/dialogs/debugdialog.cpp.o
+[ 19%] Building CXX object CMakeFiles/olive-editor.dir/dialogs/demonotice.cpp.o
+[ 19%] Building CXX object CMakeFiles/olive-editor.dir/dialogs/exportdialog.cpp.o
+[ 20%] Building CXX object CMakeFiles/olive-editor.dir/dialogs/loaddialog.cpp.o
+[ 21%] Building CXX object CMakeFiles/olive-editor.dir/dialogs/mediapropertiesdialog.cpp.o
+[ 21%] Building CXX object CMakeFiles/olive-editor.dir/dialogs/newsequencedialog.cpp.o
+[ 22%] Building CXX object CMakeFiles/olive-editor.dir/dialogs/preferencesdialog.cpp.o
+/tmp/eos-aur-build/olive/src/olive-0.1.2/dialogs/preferencesdialog.cpp: In member function ‘void PreferencesDialog::load_shortcut_file()’:
+/tmp/eos-aur-build/olive/src/olive-0.1.2/dialogs/preferencesdialog.cpp:421:31: warning: ‘int QByteArray::indexOf(const QString&, int) const’ is deprecated: Use QString's toUtf8(), toLatin1() or toLocal8Bit() [-Wdeprecated-declarations]
+  421 |         int index = ba.indexOf(key_shortcut_fields.at(i)->action_name());
+      |                     ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/qt/QtCore/qobject.h:47,
+                 from /usr/include/qt/QtWidgets/qwidget.h:45,
+                 from /usr/include/qt/QtWidgets/qdialog.h:44,
+                 from /usr/include/qt/QtWidgets/QDialog:1,
+                 from /tmp/eos-aur-build/olive/src/olive-0.1.2/dialogs/preferencesdialog.h:24,
+                 from /tmp/eos-aur-build/olive/src/olive-0.1.2/dialogs/preferencesdialog.cpp:21:
+/usr/include/qt/QtCore/qstring.h:1520:12: note: declared here
+ 1520 | inline int QByteArray::indexOf(const QString &s, int from) const
+      |            ^~~~~~~~~~
+[ 23%] Building CXX object CMakeFiles/olive-editor.dir/dialogs/proxydialog.cpp.o
+[ 23%] Building CXX object CMakeFiles/olive-editor.dir/dialogs/replaceclipmediadialog.cpp.o
+[ 24%] Building CXX object CMakeFiles/olive-editor.dir/dialogs/speeddialog.cpp.o
+[ 25%] Building CXX object CMakeFiles/olive-editor.dir/dialogs/texteditdialog.cpp.o
+[ 25%] Building CXX object CMakeFiles/olive-editor.dir/effects/fields/boolfield.cpp.o
+[ 26%] Building CXX object CMakeFiles/olive-editor.dir/effects/fields/buttonfield.cpp.o
+[ 27%] Building CXX object CMakeFiles/olive-editor.dir/effects/fields/colorfield.cpp.o
+[ 27%] Building CXX object CMakeFiles/olive-editor.dir/effects/fields/combofield.cpp.o
+[ 28%] Building CXX object CMakeFiles/olive-editor.dir/effects/fields/doublefield.cpp.o
+[ 29%] Building CXX object CMakeFiles/olive-editor.dir/effects/fields/filefield.cpp.o
+[ 29%] Building CXX object CMakeFiles/olive-editor.dir/effects/fields/fontfield.cpp.o
+[ 30%] Building CXX object CMakeFiles/olive-editor.dir/effects/fields/labelfield.cpp.o
+[ 31%] Building CXX object CMakeFiles/olive-editor.dir/effects/fields/stringfield.cpp.o
+[ 31%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/audionoiseeffect.cpp.o
+[ 32%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/cornerpineffect.cpp.o
+[ 33%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/crossdissolvetransition.cpp.o
+[ 33%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/dropshadoweffect.cpp.o
+[ 34%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/exponentialfadetransition.cpp.o
+[ 35%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/fillleftrighteffect.cpp.o
+[ 35%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/frei0reffect.cpp.o
+[ 36%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/linearfadetransition.cpp.o
+[ 37%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/logarithmicfadetransition.cpp.o
+[ 37%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/paneffect.cpp.o
+[ 38%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/richtexteffect.cpp.o
+[ 39%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/shakeeffect.cpp.o
+[ 39%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/solideffect.cpp.o
+[ 40%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/texteffect.cpp.o
+[ 41%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/timecodeeffect.cpp.o
+[ 41%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/toneeffect.cpp.o
+[ 42%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/transformeffect.cpp.o
+[ 43%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/voideffect.cpp.o
+[ 43%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/volumeeffect.cpp.o
+[ 44%] Building CXX object CMakeFiles/olive-editor.dir/effects/internal/vsthost.cpp.o
+[ 45%] Building CXX object CMakeFiles/olive-editor.dir/effects/effect.cpp.o
+[ 45%] Building CXX object CMakeFiles/olive-editor.dir/effects/effectfield.cpp.o
+[ 46%] Building CXX object CMakeFiles/olive-editor.dir/effects/effectgizmo.cpp.o
+[ 47%] Building CXX object CMakeFiles/olive-editor.dir/effects/effectloaders.cpp.o
+[ 47%] Building CXX object CMakeFiles/olive-editor.dir/effects/effectrow.cpp.o
+[ 48%] Building CXX object CMakeFiles/olive-editor.dir/effects/keyframe.cpp.o
+[ 49%] Building CXX object CMakeFiles/olive-editor.dir/effects/transition.cpp.o
+[ 49%] Building CXX object CMakeFiles/olive-editor.dir/global/config.cpp.o
+[ 50%] Building CXX object CMakeFiles/olive-editor.dir/global/debug.cpp.o
+[ 51%] Building CXX object CMakeFiles/olive-editor.dir/global/global.cpp.o
+[ 51%] Building CXX object CMakeFiles/olive-editor.dir/global/math.cpp.o
+[ 52%] Building CXX object CMakeFiles/olive-editor.dir/global/path.cpp.o
+[ 53%] Building CXX object CMakeFiles/olive-editor.dir/panels/effectcontrols.cpp.o
+[ 53%] Building CXX object CMakeFiles/olive-editor.dir/panels/grapheditor.cpp.o
+[ 54%] Building CXX object CMakeFiles/olive-editor.dir/panels/panels.cpp.o
+[ 55%] Building CXX object CMakeFiles/olive-editor.dir/panels/project.cpp.o
+[ 55%] Building CXX object CMakeFiles/olive-editor.dir/panels/timeline.cpp.o
+[ 56%] Building CXX object CMakeFiles/olive-editor.dir/panels/viewer.cpp.o
+[ 57%] Building CXX object CMakeFiles/olive-editor.dir/project/clipboard.cpp.o
+[ 57%] Building CXX object CMakeFiles/olive-editor.dir/project/footage.cpp.o
+[ 58%] Building CXX object CMakeFiles/olive-editor.dir/project/loadthread.cpp.o
+[ 59%] Building CXX object CMakeFiles/olive-editor.dir/project/media.cpp.o
+[ 59%] Building CXX object CMakeFiles/olive-editor.dir/project/previewgenerator.cpp.o
+[ 60%] Building CXX object CMakeFiles/olive-editor.dir/project/projectfilter.cpp.o
+[ 61%] Building CXX object CMakeFiles/olive-editor.dir/project/projectmodel.cpp.o
+[ 61%] Building CXX object CMakeFiles/olive-editor.dir/project/proxygenerator.cpp.o
+/tmp/eos-aur-build/olive/src/olive-0.1.2/project/proxygenerator.cpp: In member function ‘void ProxyGenerator::transcode(const ProxyInfo&)’:
+/tmp/eos-aur-build/olive/src/olive-0.1.2/project/proxygenerator.cpp:180:17: warning: ‘void av_init_packet(AVPacket*)’ is deprecated [-Wdeprecated-declarations]
+  180 |   av_init_packet(&packet);
+      |   ~~~~~~~~~~~~~~^~~~~~~~~
+In file included from /usr/include/ffmpeg4.4/libavcodec/bsf.h:30,
+                 from /usr/include/ffmpeg4.4/libavcodec/avcodec.h:44,
+                 from /usr/include/ffmpeg4.4/libavformat/avformat.h:312,
+                 from /tmp/eos-aur-build/olive/src/olive-0.1.2/project/footage.h:25,
+                 from /tmp/eos-aur-build/olive/src/olive-0.1.2/project/media.h:29,
+                 from /tmp/eos-aur-build/olive/src/olive-0.1.2/project/proxygenerator.h:29,
+                 from /tmp/eos-aur-build/olive/src/olive-0.1.2/project/proxygenerator.cpp:21:
+/usr/include/ffmpeg4.4/libavcodec/packet.h:488:6: note: declared here
+  488 | void av_init_packet(AVPacket *pkt);
+      |      ^~~~~~~~~~~~~~
+[ 62%] Building CXX object CMakeFiles/olive-editor.dir/project/sourcescommon.cpp.o
+[ 63%] Building CXX object CMakeFiles/olive-editor.dir/rendering/audio.cpp.o
+[ 63%] Building CXX object CMakeFiles/olive-editor.dir/rendering/cacher.cpp.o
+[ 64%] Building CXX object CMakeFiles/olive-editor.dir/rendering/clipqueue.cpp.o
+[ 65%] Building CXX object CMakeFiles/olive-editor.dir/rendering/exportthread.cpp.o
+/tmp/eos-aur-build/olive/src/olive-0.1.2/rendering/exportthread.cpp: In member function ‘bool ExportThread::SetupVideo()’:
+/tmp/eos-aur-build/olive/src/olive-0.1.2/rendering/exportthread.cpp:200:17: warning: ‘void av_init_packet(AVPacket*)’ is deprecated [-Wdeprecated-declarations]
+  200 |   av_init_packet(&video_pkt);
+      |   ~~~~~~~~~~~~~~^~~~~~~~~~~~
+In file included from /usr/include/ffmpeg4.4/libavcodec/bsf.h:30,
+                 from /usr/include/ffmpeg4.4/libavcodec/avcodec.h:44,
+                 from /tmp/eos-aur-build/olive/src/olive-0.1.2/rendering/exportthread.h:39,
+                 from /tmp/eos-aur-build/olive/src/olive-0.1.2/rendering/exportthread.cpp:21:
+/usr/include/ffmpeg4.4/libavcodec/packet.h:488:6: note: declared here
+  488 | void av_init_packet(AVPacket *pkt);
+      |      ^~~~~~~~~~~~~~
+/tmp/eos-aur-build/olive/src/olive-0.1.2/rendering/exportthread.cpp: In member function ‘bool ExportThread::SetupAudio()’:
+/tmp/eos-aur-build/olive/src/olive-0.1.2/rendering/exportthread.cpp:324:17: warning: ‘void av_init_packet(AVPacket*)’ is deprecated [-Wdeprecated-declarations]
+  324 |   av_init_packet(&audio_pkt);
+      |   ~~~~~~~~~~~~~~^~~~~~~~~~~~
+/usr/include/ffmpeg4.4/libavcodec/packet.h:488:6: note: declared here
+  488 | void av_init_packet(AVPacket *pkt);
+      |      ^~~~~~~~~~~~~~
+[ 65%] Building CXX object CMakeFiles/olive-editor.dir/rendering/framebufferobject.cpp.o
+[ 66%] Building CXX object CMakeFiles/olive-editor.dir/rendering/renderfunctions.cpp.o
+[ 67%] Building CXX object CMakeFiles/olive-editor.dir/rendering/renderthread.cpp.o
+[ 67%] Building CXX object CMakeFiles/olive-editor.dir/timeline/clip.cpp.o
+[ 68%] Building CXX object CMakeFiles/olive-editor.dir/timeline/marker.cpp.o
+[ 69%] Building CXX object CMakeFiles/olive-editor.dir/timeline/mediaimportdata.cpp.o
+[ 69%] Building CXX object CMakeFiles/olive-editor.dir/timeline/sequence.cpp.o
+[ 70%] Building CXX object CMakeFiles/olive-editor.dir/ui/audiomonitor.cpp.o
+[ 71%] Building CXX object CMakeFiles/olive-editor.dir/ui/blur.cpp.o
+[ 71%] Building CXX object CMakeFiles/olive-editor.dir/ui/clickablelabel.cpp.o
+[ 72%] Building CXX object CMakeFiles/olive-editor.dir/ui/collapsiblewidget.cpp.o
+[ 73%] Building CXX object CMakeFiles/olive-editor.dir/ui/columnedgridlayout.cpp.o
+[ 73%] Building CXX object CMakeFiles/olive-editor.dir/ui/colorbutton.cpp.o
+[ 74%] Building CXX object CMakeFiles/olive-editor.dir/ui/comboboxex.cpp.o
+[ 75%] Building CXX object CMakeFiles/olive-editor.dir/ui/cursors.cpp.o
+[ 75%] Building CXX object CMakeFiles/olive-editor.dir/ui/effectui.cpp.o
+[ 76%] Building CXX object CMakeFiles/olive-editor.dir/ui/embeddedfilechooser.cpp.o
+[ 77%] Building CXX object CMakeFiles/olive-editor.dir/ui/flowlayout.cpp.o
+[ 77%] Building CXX object CMakeFiles/olive-editor.dir/ui/focusfilter.cpp.o
+[ 78%] Building CXX object CMakeFiles/olive-editor.dir/ui/fontcombobox.cpp.o
+[ 79%] Building CXX object CMakeFiles/olive-editor.dir/ui/graphview.cpp.o
+[ 79%] Building CXX object CMakeFiles/olive-editor.dir/ui/icons.cpp.o
+[ 80%] Building CXX object CMakeFiles/olive-editor.dir/ui/keyframedrawing.cpp.o
+[ 81%] Building CXX object CMakeFiles/olive-editor.dir/ui/keyframenavigator.cpp.o
+[ 81%] Building CXX object CMakeFiles/olive-editor.dir/ui/keyframeview.cpp.o
+[ 82%] Building CXX object CMakeFiles/olive-editor.dir/ui/labelslider.cpp.o
+[ 83%] Building CXX object CMakeFiles/olive-editor.dir/ui/mainwindow.cpp.o
+/tmp/eos-aur-build/olive/src/olive-0.1.2/ui/mainwindow.cpp: In function ‘void kbd_shortcut_processor(QByteArray&, QMenu*, bool, bool)’:
+/tmp/eos-aur-build/olive/src/olive-0.1.2/ui/mainwindow.cpp:317:24: warning: ‘QByteArray& QByteArray::append(const QString&)’ is deprecated: Use QString's toUtf8(), toLatin1() or toLocal8Bit() [-Wdeprecated-declarations]
+  317 |             file.append(a->property("id").toString());
+      |             ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/qt/QtCore/qobject.h:47,
+                 from /usr/include/qt/QtWidgets/qwidget.h:45,
+                 from /usr/include/qt/QtWidgets/qmainwindow.h:44,
+                 from /usr/include/qt/QtWidgets/QMainWindow:1,
+                 from /tmp/eos-aur-build/olive/src/olive-0.1.2/ui/mainwindow.h:24,
+                 from /tmp/eos-aur-build/olive/src/olive-0.1.2/ui/mainwindow.cpp:21:
+/usr/include/qt/QtCore/qstring.h:1508:20: note: declared here
+ 1508 | inline QByteArray &QByteArray::append(const QString &s)
+      |                    ^~~~~~~~~~
+/tmp/eos-aur-build/olive/src/olive-0.1.2/ui/mainwindow.cpp:319:24: warning: ‘QByteArray& QByteArray::append(const QString&)’ is deprecated: Use QString's toUtf8(), toLatin1() or toLocal8Bit() [-Wdeprecated-declarations]
+  319 |             file.append(a->shortcut().toString());
+      |             ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/qt/QtCore/qstring.h:1508:20: note: declared here
+ 1508 | inline QByteArray &QByteArray::append(const QString &s)
+      |                    ^~~~~~~~~~
+/tmp/eos-aur-build/olive/src/olive-0.1.2/ui/mainwindow.cpp:333:44: warning: ‘int QByteArray::indexOf(const QString&, int) const’ is deprecated: Use QString's toUtf8(), toLatin1() or toLocal8Bit() [-Wdeprecated-declarations]
+  333 |           int shortcut_index = file.indexOf(comp_str);
+      |                                ~~~~~~~~~~~~^~~~~~~~~~
+/usr/include/qt/QtCore/qstring.h:1520:12: note: declared here
+ 1520 | inline int QByteArray::indexOf(const QString &s, int from) const
+      |            ^~~~~~~~~~
+[ 83%] Building CXX object CMakeFiles/olive-editor.dir/ui/mediaiconservice.cpp.o
+[ 84%] Building CXX object CMakeFiles/olive-editor.dir/ui/menu.cpp.o
+[ 85%] Building CXX object CMakeFiles/olive-editor.dir/ui/menuhelper.cpp.o
+[ 85%] Building CXX object CMakeFiles/olive-editor.dir/ui/panel.cpp.o
+[ 86%] Building CXX object CMakeFiles/olive-editor.dir/ui/playbutton.cpp.o
+[ 87%] Building CXX object CMakeFiles/olive-editor.dir/ui/rectangleselect.cpp.o
+[ 87%] Building CXX object CMakeFiles/olive-editor.dir/ui/resizablescrollbar.cpp.o
+[ 88%] Building CXX object CMakeFiles/olive-editor.dir/ui/scrollarea.cpp.o
+[ 89%] Building CXX object CMakeFiles/olive-editor.dir/ui/sourceiconview.cpp.o
+[ 89%] Building CXX object CMakeFiles/olive-editor.dir/ui/sourcetable.cpp.o
+[ 90%] Building CXX object CMakeFiles/olive-editor.dir/ui/styling.cpp.o
+[ 91%] Building CXX object CMakeFiles/olive-editor.dir/ui/texteditex.cpp.o
+[ 91%] Building CXX object CMakeFiles/olive-editor.dir/ui/timelineheader.cpp.o
+[ 92%] Building CXX object CMakeFiles/olive-editor.dir/ui/timelinewidget.cpp.o
+[ 93%] Building CXX object CMakeFiles/olive-editor.dir/ui/updatenotification.cpp.o
+[ 93%] Building CXX object CMakeFiles/olive-editor.dir/ui/viewercontainer.cpp.o
+[ 94%] Building CXX object CMakeFiles/olive-editor.dir/ui/viewerwidget.cpp.o
+[ 95%] Building CXX object CMakeFiles/olive-editor.dir/ui/viewerwindow.cpp.o
+[ 95%] Building CXX object CMakeFiles/olive-editor.dir/undo/comboaction.cpp.o
+[ 96%] Building CXX object CMakeFiles/olive-editor.dir/undo/undo.cpp.o
+[ 97%] Building CXX object CMakeFiles/olive-editor.dir/undo/undostack.cpp.o
+[ 97%] Building CXX object CMakeFiles/olive-editor.dir/main.cpp.o
+[ 98%] Building CXX object CMakeFiles/olive-editor.dir/olive-editor_autogen/SEXVANDQAQ/qrc_internalshaders.cpp.o
+[ 99%] Building CXX object CMakeFiles/olive-editor.dir/olive-editor_autogen/QLWOC2ZJQE/qrc_cursors.cpp.o
+[ 99%] Building CXX object CMakeFiles/olive-editor.dir/olive-editor_autogen/2SEMU33LXP/qrc_icons.cpp.o
+[100%] Linking CXX executable olive-editor
+[100%] Built target olive-editor
+==> Entering fakeroot environment...
+==> Starting package()...
+[  0%] Built target olive-editor_autogen_timestamp_deps
+[  1%] Built target olive-editor_autogen
+[100%] Built target olive-editor
+Install the project...
+-- Install configuration: "Release"
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/bin/olive-editor
+-- Set non-toolchain portion of runtime path of "/tmp/eos-aur-build/olive/pkg/olive//usr/bin/olive-editor" to ""
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/boxblur.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/boxblur.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/bulge.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/bulge.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/chromakey.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/chromakey.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/chromaticaberration.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/chromaticaberration.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/colorcorrection.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/colorcorrection.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/colorsel.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/colorsel.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/common.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/common.vert
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/crop.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/crop.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/crossstitch.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/crossstitch.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/directionalblur.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/directionalblur.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/dropshadow.xml.disabled
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/emboss.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/emboss.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/findedges.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/findedges.xml.disabled
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/fisheye.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/fisheye.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/flip.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/flip.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/gaussianblur.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/gaussianblur.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/huesatbri.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/huesatbri.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/invert.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/invert.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/lumakey.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/lumakey.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/noise.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/noise.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/pixelate.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/pixelate.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/posterize.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/posterize.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/radialblur.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/radialblur.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/ripple.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/ripple.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/sphere.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/sphere.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/swirl.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/swirl.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/tile.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/tile.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/toonify.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/toonify.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/vignette.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/vignette.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/volumetriclight.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/volumetriclight.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/wave.frag
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/effects/wave.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/applications/org.olivevideoeditor.Olive.desktop
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/metainfo/org.olivevideoeditor.Olive.appdata.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/mime/packages/org.olivevideoeditor.Olive.xml
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/icons/hicolor/16x16/apps/org.olivevideoeditor.Olive.png
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/icons/hicolor/32x32/apps/org.olivevideoeditor.Olive.png
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/icons/hicolor/48x48/apps/org.olivevideoeditor.Olive.png
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/icons/hicolor/64x64/apps/org.olivevideoeditor.Olive.png
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/icons/hicolor/128x128/apps/org.olivevideoeditor.Olive.png
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/icons/hicolor/256x256/apps/org.olivevideoeditor.Olive.png
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/icons/hicolor/512x512/apps/org.olivevideoeditor.Olive.png
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/icons/hicolor/16x16/mimetypes/application-vnd.olive-project.png
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/icons/hicolor/32x32/mimetypes/application-vnd.olive-project.png
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/icons/hicolor/48x48/mimetypes/application-vnd.olive-project.png
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/icons/hicolor/64x64/mimetypes/application-vnd.olive-project.png
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/icons/hicolor/128x128/mimetypes/application-vnd.olive-project.png
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/icons/hicolor/256x256/mimetypes/application-vnd.olive-project.png
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/icons/hicolor/512x512/mimetypes/application-vnd.olive-project.png
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/ts/olive_ar.qm
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/ts/olive_bs.qm
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/ts/olive_cs.qm
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/ts/olive_de.qm
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/ts/olive_es.qm
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/ts/olive_fr.qm
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/ts/olive_it.qm
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/ts/olive_ru.qm
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/ts/olive_sr.qm
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/ts/olive_id.qm
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/ts/olive_tr.qm
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/ts/olive_pt-BR.qm
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/ts/olive_uk.qm
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/ts/olive_zh-CN.qm
+-- Installing: /tmp/eos-aur-build/olive/pkg/olive/usr/share/olive-editor/ts/olive_zh-TW.qm
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+  -> Compressing man and info pages...
+==> Checking for packaging issues...
+==> Creating package "olive"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: olive 0.1.2-4 (jue 10 sep 2026 19:54:54)

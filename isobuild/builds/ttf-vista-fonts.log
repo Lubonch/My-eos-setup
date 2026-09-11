@@ -1,0 +1,81 @@
+==> Making package: ttf-vista-fonts 1-12 (jue 10 sep 2026 19:51:26)
+==> Checking runtime dependencies...
+==> Checking buildtime dependencies...
+==> Retrieving sources...
+  -> Downloading ttf-vista-fonts.cab...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0           00:03              0  0      0   0      0   0      0      0      0           00:04              0  0      0   0      0   0      0      0      0           00:04              0
+  0      0   0      0   0      0      0      0           00:09              0  0 60.28M   0  32601   0      0   2997      0 5:51:31   00:10 5:51:21  27423  2 60.28M   2  1.73M   0      0 149.1k      0   06:53   00:11   06:42 802.1k 26 60.28M  26 16.23M   0      0  1.25M      0   00:47   00:12   00:35  5.05M 50 60.28M  50 30.29M   0      0  2.17M      0   00:27   00:13   00:14  7.19M 74 60.28M  74 45.15M   0      0  3.02M      0   00:19   00:14   00:05  8.62M100 60.28M 100 60.28M   0      0  3.79M      0   00:15   00:15          8.62M100 60.28M 100 60.28M   0      0  3.79M      0   00:15   00:15          8.62M100 60.28M 100 60.28M   0      0  3.79M      0   00:15   00:15          8.62M
+==> Validating source files with sha256sums...
+    ttf-vista-fonts.cab ... Passed
+==> Extracting sources...
+  -> Extracting ttf-vista-fonts.cab with bsdtar
+==> Entering fakeroot environment...
+==> Starting package()...
+Extracting cabinet: /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts.cab
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/eula
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/ppviewer.cab
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/ppviewer.msi
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/files14.cat
+
+All done, no errors.
+/tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/ppviewer.cab: WARNING; possible 5968 extra bytes at end of file.
+Extracting cabinet: /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/ppviewer.cab
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/calibri.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/calibrib.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/calibrii.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/calibriz.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/cambria.ttc
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/cambriab.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/cambriai.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/cambriaz.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/candara.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/candarab.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/candarai.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/candaraz.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/consola.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/consolab.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/consolai.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/consolaz.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/constan.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/constanb.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/constani.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/constanz.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/corbel.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/corbelb.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/corbeli.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/corbelz.ttf
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/meiryo.ttc
+  extracting /tmp/eos-aur-build/ttf-vista-fonts/src/ttf-vista-fonts-1/meiryob.ttc
+
+All done, no errors.
+Copyright (c) 2000-2025. See AUTHORS for Contributors.
+ License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+ with many parts BSD <http://fontforge.org/license.html>. Please read LICENSE.
+ Version: 20251009
+ Based on sources from 2025-12-31 05:47 UTC-ML-D.
+This font contains both a 'kern' table and a 'GPOS' table.
+  The 'kern' table will only be read if there is no 'kern' feature in 'GPOS'.
+Copyright (c) 2000-2025. See AUTHORS for Contributors.
+ License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+ with many parts BSD <http://fontforge.org/license.html>. Please read LICENSE.
+ Version: 20251009
+ Based on sources from 2025-12-31 05:47 UTC-ML-D.
+This font contains both a 'kern' table and a 'GPOS' table.
+  The 'kern' table will only be read if there is no 'kern' feature in 'GPOS'.
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+  -> Compressing man and info pages...
+==> Checking for packaging issues...
+==> Creating package "ttf-vista-fonts"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+  -> Adding install file...
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: ttf-vista-fonts 1-12 (jue 10 sep 2026 19:51:44)

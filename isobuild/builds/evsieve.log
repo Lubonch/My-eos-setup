@@ -1,0 +1,79 @@
+==> Making package: evsieve 1.4.0-1 (jue 10 sep 2026 19:54:58)
+==> Checking runtime dependencies...
+==> Checking buildtime dependencies...
+==> Retrieving sources...
+  -> Downloading evsieve-1.4.0.tar.gz...
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0           00:02              0  0      0   0      0   0      0      0      0           00:02              0  0      0   0      0   0      0      0      0           00:02              0
+  0      0   0      0   0      0      0      0           00:08              0100 153.1k   0 153.1k   0      0  17676      0           00:08              0100 153.1k   0 153.1k   0      0  17676      0           00:08              0100 153.1k   0 153.1k   0      0  17676      0           00:08              0
+==> Validating source files with sha256sums...
+    evsieve-1.4.0.tar.gz ... Passed
+==> Extracting sources...
+  -> Extracting evsieve-1.4.0.tar.gz with bsdtar
+==> Starting prepare()...
+==> Starting build()...
+   Compiling libc v0.2.82
+   Compiling evsieve v1.4.0 (/tmp/eos-aur-build/evsieve/src/evsieve-1.4.0)
+   Compiling lazy_static v1.4.0
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> src/key.rs:455:30
+    |
+455 | fn key_str_to_parts(key_str: &str) -> Result<KeyParts, ArgumentError> {
+    |                              ^^^^            ^^^^^^^^ the same lifetime is hidden here
+    |                              |
+    |                              the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+    |
+455 | fn key_str_to_parts(key_str: &str) -> Result<KeyParts<'_>, ArgumentError> {
+    |                                                      ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> src/loopback.rs:148:23
+    |
+148 |     pub fn get_handle(&mut self, now: Instant) -> LoopbackHandle {
+    |                       ^^^^^^^^^                   ^^^^^^^^^^^^^^ the same lifetime is hidden here
+    |                       |
+    |                       the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+148 |     pub fn get_handle(&mut self, now: Instant) -> LoopbackHandle<'_> {
+    |                                                                 ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> src/loopback.rs:155:28
+    |
+155 |     pub fn get_handle_lazy(&mut self) -> LoopbackHandle {
+    |                            ^^^^^^^^^     ^^^^^^^^^^^^^^ the same lifetime is hidden here
+    |                            |
+    |                            the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+155 |     pub fn get_handle_lazy(&mut self) -> LoopbackHandle<'_> {
+    |                                                        ++++
+
+warning: `evsieve` (bin "evsieve") generated 3 warnings (run `cargo fix --bin "evsieve" -p evsieve` to apply 3 suggestions)
+    Finished `release` profile [optimized] target(s) in 13.28s
+==> Entering fakeroot environment...
+==> Starting package()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+  -> Compressing man and info pages...
+==> Checking for packaging issues...
+==> Creating package "evsieve"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: evsieve 1.4.0-1 (jue 10 sep 2026 19:55:22)

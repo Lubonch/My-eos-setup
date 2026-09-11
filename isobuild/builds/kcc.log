@@ -1,0 +1,134 @@
+==> Making package: kcc 10.3.0-1 (jue 10 sep 2026 19:49:21)
+==> Checking runtime dependencies...
+==> Checking buildtime dependencies...
+==> Retrieving sources...
+  -> Found kindlecomicconverter.desktop
+  -> Cloning kcc git repo...
+Cloning into bare repository '/tmp/eos-aur-build/kcc/kcc'...
+==> Validating source files with sha256sums...
+    kindlecomicconverter.desktop ... Passed
+    kcc ... Skipped
+==> Validating source files with b2sums...
+    kindlecomicconverter.desktop ... Passed
+    kcc ... Skipped
+==> Extracting sources...
+  -> Creating working copy of kcc git repo...
+Cloning into 'kcc'...
+done.
+Switched to a new branch 'makepkg'
+==> Starting build()...
+running build
+running build_py
+creating build/lib/kindlecomicconverter
+copying kindlecomicconverter/image.py -> build/lib/kindlecomicconverter
+copying kindlecomicconverter/comicarchive.py -> build/lib/kindlecomicconverter
+copying kindlecomicconverter/comic2panel.py -> build/lib/kindlecomicconverter
+copying kindlecomicconverter/comic2ebook.py -> build/lib/kindlecomicconverter
+copying kindlecomicconverter/__init__.py -> build/lib/kindlecomicconverter
+copying kindlecomicconverter/KCC_ui.py -> build/lib/kindlecomicconverter
+copying kindlecomicconverter/KCC_gui.py -> build/lib/kindlecomicconverter
+copying kindlecomicconverter/startup.py -> build/lib/kindlecomicconverter
+copying kindlecomicconverter/shared.py -> build/lib/kindlecomicconverter
+copying kindlecomicconverter/rainbow_artifacts_eraser.py -> build/lib/kindlecomicconverter
+copying kindlecomicconverter/pdfjpgextract.py -> build/lib/kindlecomicconverter
+copying kindlecomicconverter/page_number_crop_alg.py -> build/lib/kindlecomicconverter
+copying kindlecomicconverter/metadata.py -> build/lib/kindlecomicconverter
+copying kindlecomicconverter/kindle.py -> build/lib/kindlecomicconverter
+copying kindlecomicconverter/inter_panel_crop_alg.py -> build/lib/kindlecomicconverter
+copying kindlecomicconverter/dualmetafix.py -> build/lib/kindlecomicconverter
+copying kindlecomicconverter/common_crop.py -> build/lib/kindlecomicconverter
+copying kindlecomicconverter/KCC_ui_editor.py -> build/lib/kindlecomicconverter
+copying kindlecomicconverter/KCC_rc.py -> build/lib/kindlecomicconverter
+==> Entering fakeroot environment...
+==> Starting package()...
+running install
+/usr/lib/python3.14/site-packages/setuptools/_distutils/cmd.py:90: SetuptoolsDeprecationWarning: setup.py install is deprecated.
+!!
+
+        ********************************************************************************
+        Please avoid running ``setup.py`` directly.
+        Instead, use pypa/build, pypa/installer or other
+        standards-based tools.
+
+        This deprecation is overdue, please update your project and remove deprecated
+        calls to avoid build errors in the future.
+
+        See https://blog.ganssle.io/articles/2021/10/setup-py-deprecated.html for details.
+        ********************************************************************************
+
+!!
+  self.initialize_options()
+running build
+running build_py
+running install_lib
+creating /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages
+creating /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+copying build/lib/kindlecomicconverter/KCC_rc.py -> /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+copying build/lib/kindlecomicconverter/KCC_ui_editor.py -> /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+copying build/lib/kindlecomicconverter/common_crop.py -> /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+copying build/lib/kindlecomicconverter/dualmetafix.py -> /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+copying build/lib/kindlecomicconverter/inter_panel_crop_alg.py -> /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+copying build/lib/kindlecomicconverter/kindle.py -> /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+copying build/lib/kindlecomicconverter/metadata.py -> /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+copying build/lib/kindlecomicconverter/page_number_crop_alg.py -> /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+copying build/lib/kindlecomicconverter/pdfjpgextract.py -> /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+copying build/lib/kindlecomicconverter/rainbow_artifacts_eraser.py -> /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+copying build/lib/kindlecomicconverter/shared.py -> /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+copying build/lib/kindlecomicconverter/startup.py -> /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+copying build/lib/kindlecomicconverter/KCC_gui.py -> /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+copying build/lib/kindlecomicconverter/KCC_ui.py -> /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+copying build/lib/kindlecomicconverter/__init__.py -> /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+copying build/lib/kindlecomicconverter/comic2ebook.py -> /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+copying build/lib/kindlecomicconverter/comic2panel.py -> /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+copying build/lib/kindlecomicconverter/comicarchive.py -> /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+copying build/lib/kindlecomicconverter/image.py -> /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter
+byte-compiling /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter/KCC_rc.py to KCC_rc.cpython-314.pyc
+byte-compiling /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter/KCC_ui_editor.py to KCC_ui_editor.cpython-314.pyc
+byte-compiling /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter/common_crop.py to common_crop.cpython-314.pyc
+byte-compiling /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter/dualmetafix.py to dualmetafix.cpython-314.pyc
+byte-compiling /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter/inter_panel_crop_alg.py to inter_panel_crop_alg.cpython-314.pyc
+byte-compiling /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter/kindle.py to kindle.cpython-314.pyc
+byte-compiling /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter/metadata.py to metadata.cpython-314.pyc
+byte-compiling /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter/page_number_crop_alg.py to page_number_crop_alg.cpython-314.pyc
+byte-compiling /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter/pdfjpgextract.py to pdfjpgextract.cpython-314.pyc
+byte-compiling /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter/rainbow_artifacts_eraser.py to rainbow_artifacts_eraser.cpython-314.pyc
+byte-compiling /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter/shared.py to shared.cpython-314.pyc
+byte-compiling /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter/startup.py to startup.cpython-314.pyc
+byte-compiling /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter/KCC_gui.py to KCC_gui.cpython-314.pyc
+byte-compiling /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter/KCC_ui.py to KCC_ui.cpython-314.pyc
+byte-compiling /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter/__init__.py to __init__.cpython-314.pyc
+byte-compiling /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter/comic2ebook.py to comic2ebook.cpython-314.pyc
+byte-compiling /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter/comic2panel.py to comic2panel.cpython-314.pyc
+byte-compiling /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter/comicarchive.py to comicarchive.cpython-314.pyc
+byte-compiling /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/kindlecomicconverter/image.py to image.cpython-314.pyc
+running install_egg_info
+running egg_info
+creating KindleComicConverter.egg-info
+writing KindleComicConverter.egg-info/PKG-INFO
+writing dependency_links to KindleComicConverter.egg-info/dependency_links.txt
+writing entry points to KindleComicConverter.egg-info/entry_points.txt
+writing requirements to KindleComicConverter.egg-info/requires.txt
+writing top-level names to KindleComicConverter.egg-info/top_level.txt
+writing manifest file 'KindleComicConverter.egg-info/SOURCES.txt'
+reading manifest file 'KindleComicConverter.egg-info/SOURCES.txt'
+adding license file 'LICENSE.txt'
+writing manifest file 'KindleComicConverter.egg-info/SOURCES.txt'
+Copying KindleComicConverter.egg-info to /tmp/eos-aur-build/kcc/pkg/kcc/usr/lib/python3.14/site-packages/KindleComicConverter-10.3.0-py3.14.egg-info
+running install_scripts
+Installing kcc-c2e script to /tmp/eos-aur-build/kcc/pkg/kcc/usr/bin
+Installing kcc-c2p script to /tmp/eos-aur-build/kcc/pkg/kcc/usr/bin
+Installing kcc script to /tmp/eos-aur-build/kcc/pkg/kcc/usr/bin
+==> Tidying install...
+  -> Removing libtool files...
+  -> Removing static library files...
+  -> Purging unwanted files...
+  -> Stripping unneeded symbols from binaries and libraries...
+  -> Compressing man and info pages...
+==> Checking for packaging issues...
+==> Creating package "kcc"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: kcc 10.3.0-1 (jue 10 sep 2026 19:49:29)
