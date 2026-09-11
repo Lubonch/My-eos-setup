@@ -264,7 +264,11 @@ main() {
     echo "╚══════════════════════════════════════╝"
     echo -e "${NC}"
 
-    check_deps
+check_deps
+
+    # Validar sudo y mantener credenciales en cache durante toda la instalación
+    log "Pidiendo password de sudo una sola vez..."
+    sudo -v
 
     # Detectar escritorio
     DETECTED_DESKTOP=$(detect_desktop)
