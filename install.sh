@@ -131,8 +131,10 @@ install_pacman_packages() {
     fi
 
     # Leer paquetes, ignorar comentarios y líneas vacías
+    # Frena en el marcador '# --- AUR ---' (los AUR van con yay, no pacman)
     local packages=()
     while IFS= read -r line; do
+        [[ "$line" == "# --- AUR ---" ]] && break
         line="${line%%#*}"       # Quitar comentarios
         line="${line// /}"       # Quitar espacios
         [[ -n "$line" ]] && packages+=("$line")

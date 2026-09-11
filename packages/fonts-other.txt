@@ -1,11 +1,11 @@
 # Fonts / Otros
 # --- Pacman (oficiales) ---
 gtk2-compat
-evsieve
 bchunk
 perl
 texinfo
 s-nail
 
 # --- AUR ---
+evsieve
 ttf-vista-fonts
