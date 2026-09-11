@@ -29,94 +29,6 @@ warn() { echo -e "${YELLOW}[!]${NC} $*"; }
 err() { echo -e "${RED}[x]${NC} $*"; }
 
 # ============================================================
-# Paquetes AUR para compilar
-# ============================================================
-AUR_PACKAGES=(
-    proton-ge-custom-bin
-    visual-studio-code-bin
-    microsoft-edge-stable-bin
-    microsoft-edge-beta-bin
-    vesktop
-    teams-for-linux
-    telegram-desktop-bin
-    zapzap
-    mullvad-vpn-bin
-    handbrake-full
-    hakuneko-desktop-bin
-    kcc
-    kindlegen
-    omnissa-horizon-client
-    parsec-bin
-    opencode-desktop-bin
-    antigravity
-    ttf-vista-fonts
-    olive
-    evsieve
-    trackma
-    ani-cli
-    python-mozjpeg-lossless-optimization
-)
-
-# ============================================================
-# Paquetes pacman para agregar a packages.x86_64
-# ============================================================
-PACKMAN_EXTRAS='# CUSTOM SETUP - Lubonch
-
-## Gaming
-steam
-protontricks
-
-## Game Development
-godot-mono
-blender
-
-## Development
-docker
-docker-buildx
-docker-compose
-dotnet-sdk
-aspnet-runtime
-python
-python-pillow
-dbeaver
-
-## Communication
-thunderbird
-
-## VPN / Network
-rclone
-zerotier-one
-
-## Multimedia
-obs-studio
-gimp
-mkvtoolnix-cli
-inkscape
-
-## Utilities
-fastfetch
-htop
-gnome-disk-utility
-qbittorrent
-filezilla
-timeshift
-keepassxc
-
-## Desktop / Hardware
-xf86-video-amdgpu
-xf86-video-ati
-lib32-vulkan-radeon
-kwalletmanager
-
-## KDE extras
-sddm-kcm
-eos-breeze-sddm
-
-## Fonts / Other
-gtk2-compat
-bchunk'
-
-# ============================================================
 # Funciones
 # ============================================================
 
@@ -166,6 +78,9 @@ clone_and_patch() {
     log "Parcheando pacman -U local packages (skip deps, resueltas en el batch)..."
     sed -i 's|pacman -U --noconfirm --needed -- "/root/packages/|pacman -Udd --noconfirm --needed -- "/root/packages/|' run_before_squashfs.sh
     grep -q 'pacman -Udd' run_before_squashfs.sh || warn "  [!] No se pudo parchear pacman -Udd, revisá run_before_squashfs.sh"
+
+    # Hook específico del perfil (ej: quitar KDE e instalar i3 para benchmark)
+    configure_profile
 
     log "Repo parcheado correctamente."
 }
@@ -244,12 +159,15 @@ build_iso() {
 # Main
 # ============================================================
 
+PROFILE="${PROFILE:-daily}"
 MODE="all"
 
 while [[ $# -gt 0 ]]; do
     case "$1" in
         --aur-only) MODE="aur"; shift ;;
         --iso-only) MODE="iso"; shift ;;
+        --profile)
+            PROFILE="$2"; shift 2 ;;
         --clean)
             rm -rf "$ISO_DIR" "$AUR_CACHE"
             warn "Cache y repo eliminados."
@@ -257,12 +175,30 @@ while [[ $# -gt 0 ]]; do
             exit 0
             ;;
         --help|-h)
-            echo "Uso: $0 [--aur-only|--iso-only|--clean]"
+            echo "Uso: $0 [--aur-only|--iso-only|--clean] [--profile daily|benchmark]"
+            echo ""
+            echo "Opciones:"
+            echo "  --aur-only        Solo compila los paquetes AUR del perfil"
+            echo "  --iso-only        Solo buildea la ISO (AUR ya compilados)"
+            echo "  --clean           Borra repo y cache (¡cuidado!)"
+            echo "  --profile NOMBRE  Perfil: daily (KDE) o benchmark (i3)"
+            echo ""
+            echo "Perfiles disponibles: $(ls "$BASE_DIR"/profiles/*.conf 2>/dev/null | xargs -n1 basename 2>/dev/null | sed 's/\.conf//' 2>/dev/null | tr '\n' ' ')"
             exit 0
             ;;
         *) err "Opción desconocida: $1"; exit 1 ;;
     esac
 done
+
+# Cargar perfil despues de parsear --profile
+PROFILE_FILE="$BASE_DIR/profiles/${PROFILE}.conf"
+if [[ ! -f "$PROFILE_FILE" ]]; then
+    err "Perfil '$PROFILE' no encontrado: $PROFILE_FILE"
+    err "Perfiles disponibles: $(ls "$BASE_DIR"/profiles/*.conf | xargs -n1 basename | sed 's/\.conf//' | tr '\n' ' ')"
+    exit 1
+fi
+source "$PROFILE_FILE"
+log "Perfil: ${PROFILE_NAME} (${PROFILE})"
 
 check_deps
 
