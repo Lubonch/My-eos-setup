@@ -28,15 +28,20 @@ cd /mnt/Files-2tb/eos-iso-build
 
 Requisitos: `archiso`, `squashfs-tools`, `yay`. El build requiere ~30GB en disco y ~1-2h.
 
+## Fixes aplicados automáticamente por setup.sh
+
+- **Conflicto skel**: el `.gtkrc-2.0`/`.gitconfig` copiados a `airootfs/etc/skel/` rompían la instalación del paquete `endeavouros-skel-liveuser` (sin esto no arranca el DE en live). `clone_and_patch` agrega esos archivos al `--overwrite` de `run_before_squashfs.sh`.
+- **Dependencia AUR**: `kcc` requiere `python-mozjpeg-lossless-optimization` (AUR) que abortaba todo el batch de paquetes locales. Ahora se compila e incluye junto al resto.
+
 ## Formatos
 
-- `./setup.sh --aur-only` → compila los 22 paquetes AUR y los cachea en `aur-cache/`
+- `./setup.sh --aur-only` → compila los 23 paquetes AUR y los cachea en `aur-cache/`
 - `./setup.sh --iso-only` → mkarchiso genera `out/EndeavourOS_Titan-YYYY.MM.DD.iso`
 - La ISO sale ~5.4GB → USB de 8GB mínimo
 
-## Paquetes AUR (22)
+## Paquetes AUR (23)
 
-proton-ge-custom-bin, visual-studio-code-bin, microsoft-edge-stable-bin, microsoft-edge-beta-bin, vesktop, teams-for-linux, telegram-desktop-bin, zapzap, mullvad-vpn-bin, handbrake-full, hakuneko-desktop-bin, kcc, kindlegen, omnissa-horizon-client, parsec-bin, opencode-desktop-bin, antigravity, ttf-vista-fonts, olive, evsieve, trackma, ani-cli
+proton-ge-custom-bin, visual-studio-code-bin, microsoft-edge-stable-bin, microsoft-edge-beta-bin, vesktop, teams-for-linux, telegram-desktop-bin, zapzap, mullvad-vpn-bin, handbrake-full, hakuneko-desktop-bin, kcc, kindlegen, omnissa-horizon-client, parsec-bin, opencode-desktop-bin, antigravity, ttf-vista-fonts, olive, evsieve, trackma, ani-cli, python-mozjpeg-lossless-optimization (dep de kcc)
 
 ## Paquetes pacman extras (~50)
 

@@ -54,6 +54,7 @@ AUR_PACKAGES=(
     evsieve
     trackma
     ani-cli
+    python-mozjpeg-lossless-optimization
 )
 
 # ============================================================
@@ -157,6 +158,10 @@ clone_and_patch() {
 
     log "Agregando user_commands.bash..."
     cp "$BASE_DIR/user_commands.bash" airootfs/root/ 2>/dev/null || true
+
+    log "Parcheando run_before_squashfs.sh (conflicto skel con dotfiles)..."
+    sed -i 's|"/etc/skel/\.bashrc"|"/etc/skel/.bashrc","/etc/skel/.gtkrc-2.0","/etc/skel/.gitconfig"|' run_before_squashfs.sh
+    grep -q '.gtkrc-2.0' run_before_squashfs.sh || warn "  [!] No se pudo verificar el parche de skel, revisá run_before_squashfs.sh"
 
     log "Repo parcheado correctamente."
 }
