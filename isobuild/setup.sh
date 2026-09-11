@@ -164,8 +164,8 @@ clone_and_patch() {
     grep -q '.gtkrc-2.0' run_before_squashfs.sh || warn "  [!] No se pudo verificar el parche de skel, revisá run_before_squashfs.sh"
 
     log "Parcheando pacman -U local packages (skip deps, resueltas en el batch)..."
-    sed -i 's|pacman -U --noconfirm --needed -- "/root/packages/|pacman -Ud --noconfirm --needed -- "/root/packages/|' run_before_squashfs.sh
-    grep -q 'pacman -Ud' run_before_squashfs.sh || warn "  [!] No se pudo parchear pacman -Ud, revisá run_before_squashfs.sh"
+    sed -i 's|pacman -U --noconfirm --needed -- "/root/packages/|pacman -Udd --noconfirm --needed -- "/root/packages/|' run_before_squashfs.sh
+    grep -q 'pacman -Udd' run_before_squashfs.sh || warn "  [!] No se pudo parchear pacman -Udd, revisá run_before_squashfs.sh"
 
     log "Repo parcheado correctamente."
 }
