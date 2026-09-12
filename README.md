@@ -1,82 +1,31 @@
-# EndeavourOS Post-Install Setup
+# My eos-setup — Branch `eos-setup-iso` (ISO diaria con KDE)
 
-Script de automatización para reinstalar EndeavourOS con las mismas configuraciones y apps.
+Este branch contiene el build completo de la **ISO de EndeavourOS custom** que usa el setup post-install de este repo: KDE Plasma + todos los paquetes precompilados, para instalar offline desde USB.
 
-## Uso rápido
+## Qué hay en este branch
 
-```bash
-# Clonar el repo
-git clone https://github.com/Lubonch/eos-setup.git
-cd eos-setup
+| Parte | Descripción |
+|-------|-------------|
+| `install.sh`, `packages/`, `dotfiles/`, `config.conf` | Script post-install (igual que `main`): se instala después del formateo |
+| `isobuild/` | Build de la ISO: clona EndeavourOS-ISO, inyecta paquetes, compila AUR y genera `out/*.iso` |
 
-# Instalar todo
-./install.sh
-
-# O seleccionar categorías
-./install.sh --only gaming,dev,comms
-
-# Ver categorías disponibles
-./install.sh --list
-```
-
-## Categorías
-
-| Categoría | Contenido |
-|-----------|-----------|
-| `system` | Kernel, filesystem tools, utilidades base |
-| `gaming` | Steam, Proton GE, protontricks |
-| `gamedev` | Godot Mono, Blender |
-| `dev` | Docker, .NET SDK, Python, VS Code, DBeaver, Google Cloud CLI |
-| `browsers` | Edge Stable + Beta |
-| `comms` | Vesktop, Teams, Telegram, Thunderbird, ZapZap |
-| `vpn` | Mullvad VPN, ZeroTier, Rclone |
-| `media` | OBS, Handbrake, GIMP, Inkscape, MKVToolNix, Olive, Hakuneko |
-| `util` | fastfetch, htop, GParted, qBittorrent, FileZilla, Timeshift, KeePassXC |
-| `desktop` | Drivers AMD, Vulkan, Omnissa Horizon, Parsec, OpenCode |
-| `anime` | Trackma, ani-cli |
-| `fonts` | fuentes, gtk2-compat, herramientas varias |
-
-## Estructura
+## Build de la ISO
 
 ```
-eos-setup/
-├── install.sh           # Script principal
-├── config.conf          # Configuración (categorías por defecto)
-├── packages/            # Listas de paquetes por categoría
-│   ├── system.txt
-│   ├── gaming.txt
-│   ├── gamedev.txt
-│   ├── development.txt
-│   ├── browsers.txt
-│   ├── communication.txt
-│   ├── vpn-network.txt
-│   ├── multimedia.txt
-│   ├── utilities.txt
-│   ├── desktop-hardware.txt
-│   └── fonts-other.txt
-└── dotfiles/            # Archivos de configuración
-    ├── bashrc
-    ├── gitconfig
-    └── gtkrc-2.0
+cd isobuild
+./setup.sh              # Todo: clona + AUR (23 paquetes) + ISO (~5.4GB, 1-2h)
+./setup.sh --aur-only   # Solo compilar paquetes AUR (cache en aur-cache/)
+./setup.sh --iso-only   # Solo buildear la ISO (AUR ya compilados)
+./setup.sh --clean      # Borrar repo clonado y cache
 ```
 
-## Agregar/quitar paquetes
+Requisitos: `archiso`, `squashfs-tools`, `yay`. ~30GB libres en disco.
+Detalle completo en [`isobuild/README.md`](isobuild/README.md): fixes aplicados, formatos, paquetes AUR.
 
-Editá los archivos en `packages/`. Cada archivo tiene secciones:
+## Post-instalación
 
-```
-# --- Pacman (oficiales) ---
-paquete1
-paquete2
+Los scripts por categoría para el sistema recién formateado (`install.sh`, `packages/*.txt`) están documentados en [`main`](https://github.com/Lubonch/My-eos-setup/tree/main).
 
-# --- AUR ---
-paquete-aur-1
-```
+## Branch relacionado
 
-## Dotfiles incluidos
-
-- `.bashrc` - aliases, PATH para dotnet/bin/opencode
-- `.gitconfig` - nombre y email
-- `.gtkrc-2.0` - tema Breeze-Dark
-
-Para agregar más dotfiles, copialos a `dotfiles/` y agregá la línea de copia en `install.sh` (función `copy_dotfiles`).
+- `benchmark-iso`: ISO liviana sin KDE, con i3 + tools de benchmark
