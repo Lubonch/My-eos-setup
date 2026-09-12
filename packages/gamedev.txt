@@ -1,0 +1,4 @@
+# Game Development
+# --- Pacman (oficiales) ---
+godot-mono
+blender

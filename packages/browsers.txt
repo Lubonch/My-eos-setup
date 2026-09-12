@@ -1,0 +1,4 @@
+# Navegadores
+# --- AUR ---
+microsoft-edge-stable-bin
+microsoft-edge-beta-bin

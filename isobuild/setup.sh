@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 #
-# iso-benchmark.sh - Builder de ISO EndeavourOS enfocada en benchmarking
+# setup.sh - Builder de ISO EndeavourOS enfocada en benchmarking (tiling WM i3)
 #
 # Uso:
-#   ./iso-benchmark.sh                # Clona, parchea, compila AUR y buildea
-#   ./iso-benchmark.sh --aur-only     # Solo compila los paquetes AUR
-#   ./iso-benchmark.sh --iso-only     # Solo buildea la ISO (AUR ya compilados)
-#   ./iso-benchmark.sh --clean        # Borra el directorio del repo y cache
+#   ./setup.sh              # Clona, parchea, compila AUR y buildea la ISO
+#   ./setup.sh --aur-only   # Solo compila los paquetes AUR
+#   ./setup.sh --iso-only   # Solo buildea la ISO (los AUR ya compilados)
+#   ./setup.sh --clean      # Borra el directorio del repo y empieza de cero
 #
-# Perfil: sin KDE, tiling WM i3 + tools de benchmark (geekbench,
-# unigine-superposition, phoronix-test-suite, glmark2, vkmark, stress-ng...)
+# Necesita: pacman, git, archiso, squashfs-tools, yay
 
 set -euo pipefail
 
@@ -28,54 +27,6 @@ NC='\033[0m'
 log() { echo -e "${GREEN}[+]${NC} $*"; }
 warn() { echo -e "${YELLOW}[!]${NC} $*"; }
 err() { echo -e "${RED}[x]${NC} $*"; }
-
-# ============================================================
-# Paquetes AUR para compilar
-# ============================================================
-AUR_PACKAGES=(
-    geekbench
-    unigine-superposition
-    phoronix-test-suite
-    gputest
-    basemark
-    blender-benchmark-bin
-)
-
-# ============================================================
-# Paquetes pacman para agregar a packages.x86_64
-# ============================================================
-PACKMAN_EXTRAS='# CUSTOM SETUP - Benchmark
-
-## Benchmarking
-glmark2
-sysbench
-stress-ng
-7zip
-hardinfo2
-vkmark
-
-## GPU monitoring / benchmarks
-mangohud
-nvtop
-mesa-utils
-
-## Tiling WM (i3)
-i3-wm
-i3status
-dmenu
-xorg-xinit
-xcape
-xterm
-
-## Ricing sobrio
-picom
-rofi
-feh
-
-## Hardware info
-cpufetch
-btop
-openssl'
 
 # ============================================================
 # Funciones
@@ -108,61 +59,28 @@ clone_and_patch() {
     log "Ejecutando prepare.sh..."
     ./prepare.sh
 
-    log "Perfil benchmark: quitando KDE, configurando i3..."
-
-    # 1. Sacar la sección "Desktop environment" de packages.x86_64 (incluye
-    #    sddm/plasma/kwin). Se borra desde el header "## Desktop environment"
-    #    hasta el siguiente header "## Browser".
-    awk '
-        /^## Desktop environment$/ { skip=1; next }
-        skip && /^## /              { skip=0 }
-        !skip { print }
-    ' packages.x86_64 > packages.x86_64.tmp && mv packages.x86_64.tmp packages.x86_64
-    grep -q "plasma-desktop" packages.x86_64 && warn "  [!] KDE no se removió correctamente"
-
     log "Agregando paquetes extra a packages.x86_64..."
     echo "$PACKMAN_EXTRAS" >> packages.x86_64
 
-    # 2. Dotfiles: bashrc + nuestro .xinitrc para i3. El .xinitrc va en
-    #    airootfs/root/ porque el paquete endeavoursouros-skel-liveuser provee
-    #    el suyo (startplasma) y pisa el de /etc/skel.
     log "Agregando dotfiles a airootfs/etc/skel/..."
-    mkdir -p airootfs/etc/skel airootfs/root
-    cp "$BASE_DIR/dotfiles/.bashrc" airootfs/etc/skel/ 2>/dev/null || true
+    mkdir -p airootfs/etc/skel
+    cp "$BASE_DIR/dotfiles/.bashrc"  airootfs/etc/skel/ 2>/dev/null || true
     cp "$BASE_DIR/dotfiles/.gitconfig" airootfs/etc/skel/ 2>/dev/null || true
     cp "$BASE_DIR/dotfiles/.gtkrc-2.0" airootfs/etc/skel/ 2>/dev/null || true
-
-    cat > airootfs/root/benchmark-xinitrc <<'EOF'
-#!/bin/sh
-export XDG_SESSION_TYPE=x11
-export XDG_CURRENT_DESKTOP=i3
-export GDK_BACKEND=x11
-exec i3
-EOF
-    chmod +x airootfs/root/benchmark-xinitrc
-
-    log "Agregando config de i3/picom (ricing sobrio)..."
-    mkdir -p airootfs/etc/skel/.config/i3
-    cp "$BASE_DIR/dotfiles/i3/config" airootfs/etc/skel/.config/i3/config 2>/dev/null || true
-    cp "$BASE_DIR/dotfiles/picom.conf" airootfs/etc/skel/.config/picom.conf 2>/dev/null || true
 
     log "Agregando user_commands.bash..."
     cp "$BASE_DIR/user_commands.bash" airootfs/root/ 2>/dev/null || true
 
-    # 3. Parchear run_before_squashfs.sh
-    #    a) overwrite del skel: cubrir nuestros dotfiles
+    log "Parcheando run_before_squashfs.sh (conflicto skel con dotfiles)..."
     sed -i 's|"/etc/skel/\.bashrc"|"/etc/skel/.bashrc","/etc/skel/.gtkrc-2.0","/etc/skel/.gitconfig"|' run_before_squashfs.sh
-    grep -q '.gtkrc-2.0' run_before_squashfs.sh || warn "  [!] No aplicó overwrite del skel"
-    #    b) instalar el .xinitrc i3 en el liveuser DESPUÉS de useradd -m
-    sed -i '/^useradd -m -p ""/a cp "/root/benchmark-xinitrc" "/home/liveuser/.xinitrc"\nchown liveuser:liveuser "/home/liveuser/.xinitrc"' run_before_squashfs.sh
-    #    c) instalar el .xinitrc i3 en /etc/skel para el system instalado
-    sed -i 's|^cp -af "/root/filebackups/"{"\.bashrc",".bash_profile"} "/etc/skel/"$|cp -af "/root/filebackups/"{".bashrc",".bash_profile"} "/etc/skel/"\ncp "/root/benchmark-xinitrc" "/etc/skel/.xinitrc"|' run_before_squashfs.sh
-    #    d) el batch de AUR con -Udd (skip deps, todas presentes en el batch)
-    sed -i 's|pacman -U --noconfirm --needed -- "/root/packages/|pacman -Udd --noconfirm --needed -- "/root/packages/|' run_before_squashfs.sh
-    grep -q 'pacman -Udd' run_before_squashfs.sh || warn "  [!] No aplicó pacman -Udd"
+    grep -q '.gtkrc-2.0' run_before_squashfs.sh || warn "  [!] No se pudo verificar el parche de skel, revisá run_before_squashfs.sh"
 
-    # Verificación global del xinitrc i3
-    grep -q 'exec i3' airootfs/root/benchmark-xinitrc || err "  [!] .xinitrc i3 mal generado"
+    log "Parcheando pacman -U local packages (skip deps, resueltas en el batch)..."
+    sed -i 's|pacman -U --noconfirm --needed -- "/root/packages/|pacman -Udd --noconfirm --needed -- "/root/packages/|' run_before_squashfs.sh
+    grep -q 'pacman -Udd' run_before_squashfs.sh || warn "  [!] No se pudo parchear pacman -Udd, revisá run_before_squashfs.sh"
+
+    # Hook específico del perfil (ej: quitar KDE e instalar i3 para benchmark)
+    configure_profile
 
     log "Repo parcheado correctamente."
 }
@@ -241,25 +159,46 @@ build_iso() {
 # Main
 # ============================================================
 
+PROFILE="${PROFILE:-benchmark}"
 MODE="all"
 
 while [[ $# -gt 0 ]]; do
     case "$1" in
         --aur-only) MODE="aur"; shift ;;
         --iso-only) MODE="iso"; shift ;;
+        --profile)
+            PROFILE="$2"; shift 2 ;;
         --clean)
             rm -rf "$ISO_DIR" "$AUR_CACHE"
             warn "Cache y repo eliminados."
-            log "Reconstruí todo con ./iso-benchmark.sh"
+            log "Reconstruí todo con ./setup.sh"
             exit 0
             ;;
         --help|-h)
-            echo "Uso: $0 [--aur-only|--iso-only|--clean]"
+            echo "Uso: $0 [--aur-only|--iso-only|--clean] [--profile benchmark]"
+            echo ""
+            echo "Opciones:"
+            echo "  --aur-only        Solo compila los paquetes AUR del perfil"
+            echo "  --iso-only        Solo buildea la ISO (AUR ya compilados)"
+            echo "  --clean           Borra repo y cache (¡cuidado!)"
+            echo "  --profile NOMBRE  Perfil disponible: benchmark (i3)"
+            echo ""
+            echo "Perfiles disponibles: $(ls "$BASE_DIR"/profiles/*.conf 2>/dev/null | xargs -n1 basename 2>/dev/null | sed 's/\.conf//' 2>/dev/null | tr '\n' ' ')"
             exit 0
             ;;
         *) err "Opción desconocida: $1"; exit 1 ;;
     esac
 done
+
+# Cargar perfil despues de parsear --profile
+PROFILE_FILE="$BASE_DIR/profiles/${PROFILE}.conf"
+if [[ ! -f "$PROFILE_FILE" ]]; then
+    err "Perfil '$PROFILE' no encontrado: $PROFILE_FILE"
+    err "Perfiles disponibles: $(ls "$BASE_DIR"/profiles/*.conf | xargs -n1 basename | sed 's/\.conf//' | tr '\n' ' ')"
+    exit 1
+fi
+source "$PROFILE_FILE"
+log "Perfil: ${PROFILE_NAME} (${PROFILE})"
 
 check_deps
 

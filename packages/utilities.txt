@@ -1,0 +1,10 @@
+# Utilidades
+# --- Pacman (oficiales) ---
+fastfetch
+htop
+gparted
+gnome-disk-utility
+qbittorrent
+filezilla
+timeshift
+keepassxc

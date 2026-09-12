@@ -1,0 +1,9 @@
+# Comunicación
+# --- Pacman (oficiales) ---
+thunderbird
+
+# --- AUR ---
+vesktop
+teams-for-linux
+telegram-desktop-bin
+zapzap

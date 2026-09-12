@@ -1,0 +1,4 @@
+# Anime / Media tracking
+# --- AUR ---
+trackma
+ani-cli
