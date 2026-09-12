@@ -1,7 +1,0 @@
-# VPN / Red
-# --- Pacman (oficiales) ---
-rclone
-zerotier-one
-
-# --- AUR ---
-mullvad-vpn-bin

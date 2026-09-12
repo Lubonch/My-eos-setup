@@ -1,7 +1,0 @@
-# Gaming
-# --- Pacman (oficiales) ---
-steam
-protontricks
-
-# --- AUR ---
-proton-ge-custom-bin

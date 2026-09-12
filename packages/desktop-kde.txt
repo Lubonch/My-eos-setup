@@ -1,6 +1,0 @@
-# KDE Plasma specific packages
-# Solo se instalan si el escritorio es KDE
-# --- Pacman (oficiales) ---
-sddm-kcm
-eos-breeze-sddm
-kwalletmanager
