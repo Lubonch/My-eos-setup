@@ -1,0 +1,6 @@
+# Build de ISO - artefactos locales (no subir)
+isobuild/EndeavourOS-ISO/
+isobuild/aur-cache/
+isobuild/builds/
+isobuild/*.log
+isobuild/out/
